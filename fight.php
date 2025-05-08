@@ -37,12 +37,12 @@ include "header.php" ?>
             $db->save_player($created);
             // call and return the ID of the character and create new Character object with the ID to make sure we save the character properly afterwards! 
             $character = $db->display_id($p_name, $c_name);
-            
+
             
         }
         
         else if($mode == 'continue') {
-    
+            
         }
     
         else if($mode == 'fight') {

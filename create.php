@@ -11,10 +11,10 @@
             <input type="text" id="c_name" name="c_name" /><br/>
             <label for="c_type">Attribut</label><br/>
             <select id="c_type" name="c_type" />
-                <option value="Ork">Feuer</option>
-                <option value="Zwerg">Wasser</option>
-                <option value="Mensch">Erde</option>
-                <option value="Elf">Luft</option>
+                <option value="Feuer">Feuer</option>
+                <option value="Wasser">Wasser</option>
+                <option value="Erde">Erde</option>
+                <option value="Luft">Luft</option>
             </select><br/>
 
             <input type="submit" name="Absenden" />&nbsp;<input type="reset" value="Zurücksetzen">
