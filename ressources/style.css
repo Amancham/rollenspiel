@@ -1,0 +1,96 @@
+@font-face {
+    font-family: Quicksand;
+    src: url(fonts\Quicksand-VariableFont_wght.ttf);
+}
+@font-face {
+    font-family: "Unifaktur Maguntia";
+    src: url(fonts\UnifrakturMaguntia-Regular.ttf);
+}
+
+:root {
+    --font_main: Quicksand, Arial, Helvetica, sans-serif;
+    --font_special: 'Unifaktur Maguntia', Papyrus, Copperplate, fantasy; 
+    --col_darkest: #131415;
+    --col_med_dark: #1F3E42;
+    --col_medium: #315A56;
+    --col_lighter: #3E7F74;
+    --col_lightest: #BDD295;
+    --col_medlight: #A0A344;
+    --col_health: #ca0606;
+}
+
+body, html {
+    font-size: 100%;
+    font-family: var(--font_main);
+    background-color: var(--col_darkest);
+    color: var(--col_lightest);
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    font-size: 120%;
+}
+
+menu {
+    padding: 0px;
+}
+
+nav {
+
+}
+
+nav a {
+    color: var(--col_medlight);
+    padding: 10px;
+    margin-left: 10px;
+}
+
+footer {
+    background-color: var(--col_medium);
+    font-size: 80%;
+    padding: 10px;
+    text-align: center;
+}
+
+#wrapper {
+    background-color: var(--col_med_dark);
+    font-size: 110%;
+    width: 90%;
+    border-radius: 20px;
+    margin: 20px auto;
+}
+
+#content {
+    padding: 20px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.health_outer {
+    background-color: #777777;
+    height: 25px;
+    text-align: center;
+    padding: 0;
+    border-radius: 7px;
+    z-index: 0;
+}
+
+.health {
+    position: relative;
+    background-color: var(--col_health);
+    color: white;
+    height: 25px;
+    text-align: center;
+    padding: 0;
+    margin-left: 0;
+    border-radius: 7px;
+    z-index: 1;
+}
+
+.health_number {
+    position: relative;
+    color: white;
+    margin-top: -24px;
+    z-index: 20;
+}

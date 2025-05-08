@@ -1,0 +1,11 @@
+<?php
+if(!defined('KEEP_OUT')) {
+    die('Direct access not permitted');
+}
+return array(
+    'server' => "localhost",
+    'benutzer' => "phpNutzer",
+    'pw' => "LmnbB77lh*jif238hk0HIds",
+    'db' => "phpnutzer_rpg"
+);
+?>
