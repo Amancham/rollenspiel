@@ -65,9 +65,10 @@ class Database {
     public function display_id($p_name, $c_name) {
         // TODO: create this function and make it work. brain.exe not working today.
         $sql = "SELECT * FROM player WHERE pname = '".$p_name."' AND cname = '".$c_name."';";
-        $stmt = $this->pdo->query($sql);
-        $data = $stmt->execute();
-        print_r($data);
+        foreach($this->pdo->query($sql) as $row) {
+            echo("Dein Charakter wurde erstellt. Um später weiterzuspielen brauchst du deinen Spielernamen und deine Charakter-ID. Deine ID ist: <b>".$row['id']."</b> Viel Spaß.");
+            return new Player($row);
+        }
 
     }
     public function save_fight($fight, $fight_info) {

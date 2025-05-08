@@ -36,7 +36,8 @@ include "header.php" ?>
             $created = new Player($new_character);
             $db->save_player($created);
             // call and return the ID of the character and create new Character object with the ID to make sure we save the character properly afterwards! 
-            $db->display_id($p_name, $c_name);
+            $character = $db->display_id($p_name, $c_name);
+            
             
         }
         

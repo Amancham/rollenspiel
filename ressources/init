@@ -4,10 +4,10 @@ if(!defined('KEEP_OUT')) {
 }
 return array(
     'server' => "localhost",
-    'benutzer' => "phpNutzer",
-    'pw' => "LmnbB77lh*jif238hk0HIds",
-    'db' => "phpnutzer_rpg"
+    'benutzer' => "bfwstuff",
+    'pw' => "Mod0xRH5gw!*1o",
+    'db' => "bfwstuff_rpg"
 );
 
-// change credentials. 
+// bogus credentials, obviously. 
 ?>
