@@ -10,7 +10,7 @@
             <label for="c_id">Charakter-Id</label><br/>
             <input type="number" id="c_id" name="c_id" /><br/>
 
-            <input type="submit" name="Absenden" />&nbsp;<input type="reset" value="Zurücksetzen">
+            <input type="submit" name="Weiter">&nbsp;<input type="reset" value="Zurücksetzen">
         </fieldset>
     </form>
 </div>

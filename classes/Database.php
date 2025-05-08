@@ -66,7 +66,8 @@ class Database {
         // TODO: create this function and make it work. brain.exe not working today.
         $sql = "SELECT * FROM player WHERE pname = '".$p_name."' AND cname = '".$c_name."';";
         foreach($this->pdo->query($sql) as $row) {
-            echo("Dein Charakter wurde erstellt. Um später weiterzuspielen brauchst du deinen Spielernamen und deine Charakter-ID. Deine ID ist: <b>".$row['id']."</b> Viel Spaß.");
+            echo("<h3>Dein Charakter wurde erstellt</h3>
+            <p>Um später weiterzuspielen brauchst du deinen Spielernamen und deine Charakter-ID. Deine ID ist: <b>".$row['id']."</b> Viel Spaß.</p>");
             return new Player($row);
         }
 

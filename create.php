@@ -17,7 +17,7 @@
                 <option value="Luft">Luft</option>
             </select><br/>
 
-            <input type="submit" name="Absenden" />&nbsp;<input type="reset" value="Zurücksetzen">
+            <input type="submit" name="Start">&nbsp;<input type="reset" value="Zurücksetzen">
         </fieldset>
     </form>
 </div>

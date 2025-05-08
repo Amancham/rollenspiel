@@ -37,16 +37,30 @@ include "header.php" ?>
             $db->save_player($created);
             // call and return the ID of the character and create new Character object with the ID to make sure we save the character properly afterwards! 
             $character = $db->display_id($p_name, $c_name);
+            $_SESSION['id'] = $character->getId();
+            echo("<p>Wenn du bereit bist, kannst du jetzt <a href=\"fight.php?mode=fight\" kämpfen!</p>");
 
             
         }
         
         else if($mode == 'continue') {
+            $character = $db->load_player($_POST['c_id']);
+            if($_POST['p_name'] == $character->getPname()) {
+                // move on to fight
+                $_SESSION['id'] = $character->getId();
+                header("Refresh:0; url=fight.php?mode=fight");
+            }
+            else {
+                echo("<h2>Fehler</h2><p>Die Daten stimmen nicht mit den Daten in unserer Datenbank überein.</p>
+                <p><a href=\"continue.php\">Erneut versuchen</a> oder <a href=\"create.php\">Charakter erstellen</a></p>");
+            }
             
         }
     
         else if($mode == 'fight') {
-    
+            $character = $db->load_player($_SESSION['id']);
+
+            $arenas = ['Luft', 'Erde', 'Wind', 'Wasser'];
         }
     }
 
