@@ -88,7 +88,7 @@ class Player {
     // other functions, e.g. display, changes and so on
     public function show_status() {
         $health_percent = round(($this->health_curr/$this->health_max) * 100, 1);
-        echo('<h1>Charakter: '.$this->cname.'</h1>');
+        echo('<h1>'.$this->cname.'</h1>');
         echo('<div class="health_outer" style="width: 300px;">');
         echo('<div class="health" style="width:'.$this->health_curr.'px"></div>');
         echo('<div class="health_number">'.$health_percent.' %</div></div>');

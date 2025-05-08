@@ -38,7 +38,7 @@ include "header.php" ?>
             // call and return the ID of the character and create new Character object with the ID to make sure we save the character properly afterwards! 
             $character = $db->display_id($p_name, $c_name);
             $_SESSION['id'] = $character->getId();
-            echo("<p>Wenn du bereit bist, kannst du jetzt <a href=\"fight.php?mode=fight\" kämpfen!</p>");
+            echo("<p>Wenn du bereit bist, kannst du jetzt <a href=\"fight.php?mode=fight\">kämpfen!</a></p>");
 
             
         }
@@ -59,8 +59,26 @@ include "header.php" ?>
     
         else if($mode == 'fight') {
             $character = $db->load_player($_SESSION['id']);
+            include("classes/Fight.php");
 
+            // some randomness due to lack of NPCs...
+            $e_id = rand(1,$db->get_max_no());
+            while ($e_id == $character->getId()) {
+                $e_id = rand(1,$db->get_max_no());
+            }
+            $enemy = $db->load_player($e_id);
+            // pick random arena type
             $arenas = ['Luft', 'Erde', 'Wind', 'Wasser'];
+            $rand_key = array_rand($arenas);
+            $type = $arenas[$rand_key];
+
+            $fight = new Fight($type); 
+            echo("Du und dein Gegner trefft in einer ".$type."-Arena aufeinander.");
+            echo("<div id=\player_box\">".$character->show_status()."</div><div id=\"enemy_box\">".$enemy->show_status()."</div>");
+            $fight_info = $fight->do_fight($character, $enemy);
+            $winner = $db->load_player($fight_info['winner']);
+            echo("Hurra! ".$winner->getCname()." hat gewonnen!");
+            $db->save_fight($fight, $fight_info);
         }
     }
 

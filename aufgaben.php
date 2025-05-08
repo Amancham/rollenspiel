@@ -12,15 +12,19 @@ $configs = include('ressources/init');
     <?php 
     // create a character first
     $array1 = [
-        'name' => 'Hans',
+        'cname' => 'Hans',
+        'pname' => 'Elliar',
         'health_max' => 300,
-        'strength' => 15
+        'strength' => 15,
+        'ctype' => 'Erde'
     ];
     $spieler1 = new Player($array1);
     $array2 = [
-        'name' => 'Greta',
+        'cname' => 'Greta',
+        'pname' => 'Marian',
         'health_max' => 300,
-        'strength' => 10
+        'strength' => 10,
+        'ctype' => 'Feuer'
     ];
     $spieler2 = new Player($array2);
     // manipulate the creation date format (hour, minute, second, month, day, year): 
@@ -42,8 +46,6 @@ $configs = include('ressources/init');
     echo("<hr>");
     $fight = new Fight("Sandplatz");
     $fight_info = $fight->do_fight($spieler1, $spieler2);
-    $fight2 = new RB_Fight("Wüste");
-    $fight2_info = $fight2->do_fight($spieler1, $spieler2);
 
     $db->save_fight($fight, $fight_info);
     $db->save_fight($fight2, $fight2_info);

@@ -41,22 +41,16 @@ class Fight {
             $winner_id = $spieler2->getId();
         }
         else {
-            $fighters = [$spieler1->getCname(), $spieler2->getCname()];
+            $fighters = [$spieler1->getId(), $spieler2->getId()];
             $winner = $fighters[array_rand($fighters)];
 
-            $fighters = [$spieler1, $spieler2];
-            $randomized = $fighters[array_rand($fighters)];
-            $winner = $fighters[$randomized[0]];
-            $winner_id = $winner->getId();
-
         }
-        echo("<h2>Hurra! ".$winner." hat gewonnen!</h2>");
         $this->rounds++;
         $final_info = [
             'fighter1' => $spieler1->getId(),
             'fighter2' => $spieler2->getId(),
             'rounds' => $this->rounds,
-            'winner' => $winner_id
+            'winner' => $winner
         ];
         return $final_info;
     }

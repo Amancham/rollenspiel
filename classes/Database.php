@@ -70,7 +70,11 @@ class Database {
             <p>Um später weiterzuspielen brauchst du deinen Spielernamen und deine Charakter-ID. Deine ID ist: <b>".$row['id']."</b> Viel Spaß.</p>");
             return new Player($row);
         }
-
+    }
+    public function get_max_no() {
+        $sql = "SELECT COUNT(id) FROM player;";
+        $rows = $this->pdo->query($sql)->fetchColumn();
+        return $rows;
     }
     public function save_fight($fight, $fight_info) {
         $sql = "INSERT INTO fight (fighter1, fighter2, winner, arena, rounds) VALUES (".$fight_info['fighter1'].", ".$fight_info['fighter2'].", ".$fight_info['winner'].", '".$fight->getArena()."', ".$fight_info['rounds'].");";

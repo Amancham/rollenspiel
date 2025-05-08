@@ -1,5 +1,6 @@
 <?php
 class RB_Fight {
+    //currently broken, did not update to the new type mechanic yet
     private $rounds;
     private $arena;
 
