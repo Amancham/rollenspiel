@@ -20,6 +20,7 @@ class RB_Fight {
         $this->arena = $arena;
     }
     public function do_fight($spieler1, $spieler2) {
+        // TODO: Add agility and evade to make fights more interesting.
         $i = 1;
         if($spieler1->getStrength() > $spieler2->getStrength()) {
             echo("Der Kampf beginnt. ".$spieler1->getName()." fängt an.<br/>");

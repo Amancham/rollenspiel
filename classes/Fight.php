@@ -25,23 +25,23 @@ class Fight {
         $attack_one = $spieler1->getHealth_curr() / $spieler2->getStrength();
         $attack_two = $spieler2->getHealth_curr() / $spieler1->getStrength();
         if($attack_one < $attack_two) {
-            $winner = $spieler2->getName();
+            $winner = $spieler2->getCname();
             $winner_id = $spieler2->getId();
         }
         else if($attack_one > $attack_two) {
-            $winner = $spieler1->getName();
+            $winner = $spieler1->getCname();
             $winner_id = $spieler1->getId();
         }
         else if($attack_one == $attack_two AND $spieler1->getStrength() > $spieler2->getStrength()) {
-            $winner = $spieler1->getName();
+            $winner = $spieler1->getCname();
             $winner_id = $spieler1->getId();
         }
         else if($attack_one == $attack_two AND $spieler1->getStrength() < $spieler2->getStrength()) {
-            $winner = $spieler2->getName();
+            $winner = $spieler2->getCname();
             $winner_id = $spieler2->getId();
         }
         else {
-            $fighters = [$spieler1->getName(), $spieler2->getName()];
+            $fighters = [$spieler1->getCname(), $spieler2->getCname()];
             $winner = $fighters[array_rand($fighters)];
 
             $fighters = [$spieler1, $spieler2];

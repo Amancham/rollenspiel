@@ -1,10 +1,12 @@
 <?php 
 class Player {
     private $id;
-    private $name;
+    private $cname;
+    private $pname;
     private $health_max;
     private $health_curr;
     private $strength;
+    private $type;
     private $created;
 
     // constructor for the class
@@ -15,7 +17,8 @@ class Player {
         else {
             $this->id = 0;
         }
-        $this->name = $array['name'];
+        $this->cname = $array['cname'];
+        $this->pname = $array['pname'];
         $this->health_max = $array['health_max'];
         if(array_key_exists('health_curr', $array)) {
             $this->health_curr = $array['health_curr'];
@@ -24,6 +27,7 @@ class Player {
             $this->health_curr = $array['health_max'];
         }
         $this->strength = $array['strength'];
+        $this->type = $array['ctype'];
         if(array_key_exists('created', $array)) {
             $this->created = strtotime($array['created']);
         }
@@ -38,11 +42,17 @@ class Player {
     public function setId($id) {
         $this->id = $id;
     }
-    public function getName() {
-        return $this->name;
+    public function getCname() {
+        return $this->cname;
     }
-    public function setName($name) {
-        $this->name = $name;
+    public function setCname($cname) {
+        $this->cname = $cname;
+    }
+    public function getPname() {
+        return $this->pname;
+    }
+    public function setPname($pname) {
+        $this->pname = $pname;
     }
     public function getHealth_max() {
         return $this->health_max;
@@ -62,6 +72,12 @@ class Player {
     public function setStrength($strength) {
         $this->strength = $strength;
     }
+    public function getType(){
+        return $this->type;
+    }
+    public function setType($type) {
+        $this->type = $type;
+    }
     public function getCreated() {
         return $this->created;
     }
@@ -72,12 +88,13 @@ class Player {
     // other functions, e.g. display, changes and so on
     public function show_status() {
         $health_percent = round(($this->health_curr/$this->health_max) * 100, 1);
-        echo('<h1>Spieler: '.$this->name.'</h1>');
+        echo('<h1>Charakter: '.$this->cname.'</h1>');
         echo('<div class="health_outer" style="width: 300px;">');
         echo('<div class="health" style="width:'.$this->health_curr.'px"></div>');
         echo('<div class="health_number">'.$health_percent.' %</div></div>');
         echo('<div class="stats">Lebenspunkte: '.$this->health_curr.'/'.$this->health_max.'</div>');
         echo('<div class="stats">Angriffswert: '.$this->strength.'</div>');
+        echo('<div class="stats">Attribut: '.$this->type.'</div>');
     }
 
     public function has_birthday() {

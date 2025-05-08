@@ -47,11 +47,11 @@ class Database {
     }
     public function save_player($player) {
         if($player->getId() == 0) {
-            $sql = "INSERT INTO player (name, health_max, health_curr, strength) VALUES ('".$player->getName()."', ".$player->getHealth_max().", ".$player->getHealth_curr().", ".$player->getStrength().");";
+            $sql = "INSERT INTO player (pname, cname, health_max, health_curr, strength, ctype) VALUES ('".$player->getPname()."', '".$player->getCname()."', ".$player->getHealth_max().", ".$player->getHealth_curr().", ".$player->getStrength().", '".$player->getType()."');";
             $this->pdo->exec($sql);
         }
         else {
-            $sql = "UPDATE player SET name = '".$player->getName()."', health_max = ".$player->getHealth_max().", health_curr = ".$player->getHealth_curr().", strength = ".$player->getStrength()."  WHERE id = ".$player->getId().";";
+            $sql = "UPDATE player SET pname = '".$player->getPname()."', cname = '".$player->getCname()."', health_max = ".$player->getHealth_max().", health_curr = ".$player->getHealth_curr().", strength = ".$player->getStrength().", race = '".$player->getType()."'  WHERE id = ".$player->getId().";";
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute();
         }
@@ -59,9 +59,16 @@ class Database {
     public function load_player($id) {
         $sql = "SELECT * FROM player WHERE id = ".$id.";";
         foreach($this->pdo->query($sql) as $row) {
-
             return new Player($row);
         }
+    }
+    public function display_id($p_name, $c_name) {
+        // TODO: create this function and make it work. brain.exe not working today.
+        $sql = "SELECT * FROM player WHERE pname = '".$p_name."' AND cname = '".$c_name."';";
+        $stmt = $this->pdo->query($sql);
+        $data = $stmt->execute();
+        print_r($data);
+
     }
     public function save_fight($fight, $fight_info) {
         $sql = "INSERT INTO fight (fighter1, fighter2, winner, arena, rounds) VALUES (".$fight_info['fighter1'].", ".$fight_info['fighter2'].", ".$fight_info['winner'].", '".$fight->getArena()."', ".$fight_info['rounds'].");";
