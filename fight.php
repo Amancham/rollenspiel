@@ -68,7 +68,7 @@ include "header.php" ?>
             }
             $enemy = $db->load_player($e_id);
             // pick random arena type
-            $arenas = ['Luft', 'Erde', 'Wind', 'Wasser'];
+            $arenas = ['Luft', 'Erde', 'Feuer', 'Wasser'];
             $rand_key = array_rand($arenas);
             $type = $arenas[$rand_key];
 
