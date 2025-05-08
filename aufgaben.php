@@ -48,7 +48,6 @@ $configs = include('ressources/init');
     $fight_info = $fight->do_fight($spieler1, $spieler2);
 
     $db->save_fight($fight, $fight_info);
-    $db->save_fight($fight2, $fight2_info);
     
     ?>
     </div>
