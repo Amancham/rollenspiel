@@ -8,4 +8,6 @@ return array(
     'pw' => "LmnbB77lh*jif238hk0HIds",
     'db' => "phpnutzer_rpg"
 );
+
+// change credentials. 
 ?>
